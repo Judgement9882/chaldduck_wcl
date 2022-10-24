@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
     <TextView
-        android:id="@+id/choose_text"
+        android:id="@+id/exer_result"
         android:layout_width="0dp"
         android:layout_height="200dp"
         android:layout_marginBottom="400dp"
@@ -38,7 +38,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/choose_text"
+        app:layout_constraintTop_toBottomOf="@+id/exer_result"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button

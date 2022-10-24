@@ -13,7 +13,7 @@ class ExerYoutube : AppCompatActivity() {
 
     var video: VideoView? = null
     private var mediaPlayer: MediaPlayer? = null
-    lateinit var startbutton : Button
+    lateinit var startbutton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,15 +29,18 @@ class ExerYoutube : AppCompatActivity() {
         //video?.setVideoURI(Uri.parse("https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"))
 
         // val VIDEO_PATH = "android.resource://" + "com.pickersoft.myvideoview" + "/" + R.raw.sample2
-        val VIDEO_PATH = "android.resource://" + "org.tensorflow.lite.examples.poseestimation" + "/" +R.raw.sample2
+        val VIDEO_PATH =
+            "android.resource://" + "org.tensorflow.lite.examples.poseestimation" + "/" + R.raw.sample2
         var uri: Uri = Uri.parse(VIDEO_PATH)
         video?.setVideoURI(uri)
 
         startbutton.setOnClickListener {
-            val nextIntent = Intent(this@ExerYoutube, InsertSetRep::class.java) // 다음 화면으로 넘어가기 위한 인텐트 객체 생성
+            val nextIntent =
+                Intent(this@ExerYoutube, InsertSetRep::class.java) // 다음 화면으로 넘어가기 위한 인텐트 객체 생성
             nextIntent.putExtra("id", user_id)
             nextIntent.putExtra("exer_name", exer_name)
             startActivity(nextIntent)
+            finish()
         }
     }
 
@@ -45,23 +48,10 @@ class ExerYoutube : AppCompatActivity() {
         // Play button click!
         video?.start()
     }
+
     fun onStop(view: View) {
         // Stop button click!
         video?.pause()
     }
 
-//    fun onStart(view: View){
-//
-//        // 사운드 재생
-////        if (mediaPlayer == null) {
-////            mediaPlayer = MediaPlayer.create(this, R.raw.start)
-////        }
-////        mediaPlayer?.start()
-//
-//        // 운동페이지로 인텐트 이동
-//        val nextIntent = Intent(this, InsertSetRep::class.java) // 다음 화면으로 넘어가기 위한 인텐트 객체 생성
-//        nextIntent.putExtra("id", user_id)
-//        nextIntent.putExtra("exer_name", "exer_three")
-//        startActivity(intent)
-//    }
 }

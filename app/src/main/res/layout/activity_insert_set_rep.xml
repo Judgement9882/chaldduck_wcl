@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".InsertSetRep">
     <TextView
-        android:id="@+id/choose_text"
+        android:id="@+id/exer_result"
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:background="#4E7BEF"
@@ -41,7 +41,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/choose_text"
+        app:layout_constraintTop_toBottomOf="@+id/exer_result"
         app:layout_constraintVertical_bias="0.214"
         tools:ignore="RtlCompat" />
 
@@ -95,7 +95,7 @@
 
 
     <Button
-        android:id="@+id/exer_start"
+        android:id="@+id/exer_exit"
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:layout_marginStart="40dp"

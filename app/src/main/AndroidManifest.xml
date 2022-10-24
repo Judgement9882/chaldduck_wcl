@@ -18,6 +18,12 @@
         android:theme="@style/Theme.PoseEstimation"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ExerResult"
+            android:exported="false" />
+        <activity
+            android:name=".WaitActivity"
+            android:exported="false" />
+        <activity
             android:name=".ExerYoutube"
             android:exported="false" />
         <activity

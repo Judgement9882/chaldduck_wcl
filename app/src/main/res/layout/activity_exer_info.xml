@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ExerInfo">
     <TextView
-        android:id="@+id/choose_text"
+        android:id="@+id/exer_result"
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:layout_marginBottom="400dp"
@@ -30,7 +30,7 @@
         android:layout_height="45dp"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/choose_text"
+        app:layout_constraintBottom_toTopOf="@+id/exer_result"
         app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
@@ -39,7 +39,7 @@
         android:layout_height="124dp"
         android:layout_marginTop="36dp"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/choose_text"
+        app:layout_constraintTop_toBottomOf="@+id/exer_result"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="2dp">
 
@@ -69,7 +69,7 @@
         android:id="@+id/BarChart"
         android:layout_width="410dp"
         android:layout_height="272dp"
-        android:layout_below="@id/choose_text"
+        android:layout_below="@id/exer_result"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         tools:ignore="MissingConstraints" />

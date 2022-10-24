@@ -83,4 +83,7 @@ dependencies {
     // 차트
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
     kapt 'com.github.bumptech.glide:compiler:4.11.0'
+
+    // 카메라 권한 허용
+    implementation 'gun0912.ted:tedpermission:2.2.3'
 }

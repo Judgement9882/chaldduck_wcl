@@ -185,11 +185,11 @@ class CameraSource(
 //            val cameraDirection = characteristics.get(CameraCharacteristics.LENS_FACING)
             // 바꾸기 위해 var로 변경
             var cameraDirection = characteristics.get(CameraCharacteristics.LENS_FACING)
-            if (cameraDirection != null &&
-                cameraDirection == CameraCharacteristics.LENS_FACING_FRONT
-            ) {
+
+            if (cameraDirection != null && cameraDirection == CameraCharacteristics.LENS_FACING_FRONT) {
                 continue
             }
+
             this.cameraId = cameraId
         }
     }

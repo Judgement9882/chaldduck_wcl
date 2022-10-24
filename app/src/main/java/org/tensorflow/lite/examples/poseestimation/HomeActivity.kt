@@ -19,7 +19,7 @@ class HomeActivity : AppCompatActivity() {
         val intent = intent
         val user_id = intent.getStringExtra("id")
 
-        user_info = findViewById(R.id.choose_text)
+        user_info = findViewById(R.id.exer_result)
         exer_info_button = findViewById(R.id.exer_one)
         start_exercise_button = findViewById(R.id.exer_two)
 

@@ -19,12 +19,9 @@ package org.tensorflow.lite.examples.poseestimation
 import android.Manifest
 import android.app.AlertDialog
 import android.app.Dialog
+import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Bitmap
-import android.graphics.Canvas
 import android.graphics.Color
-import android.graphics.Paint
-import android.hardware.camera2.CameraDevice
 import android.os.Bundle
 import android.os.Process
 import android.util.Log
@@ -43,8 +40,6 @@ import kotlinx.coroutines.launch
 import org.tensorflow.lite.examples.poseestimation.camera.CameraSource
 import org.tensorflow.lite.examples.poseestimation.data.Device
 import org.tensorflow.lite.examples.poseestimation.ml.*
-import org.tensorflow.lite.examples.poseestimation.VisualizationUtils
-import kotlin.concurrent.timer
 
 import org.tensorflow.lite.examples.poseestimation.data.BodyPart
 import java.lang.Math.abs
@@ -54,9 +49,7 @@ import kotlin.math.roundToInt
 
 import org.tensorflow.lite.examples.poseestimation.databinding.ActivityMainBinding
 import android.os.SystemClock
-import android.view.KeyEvent
 import android.widget.Toast
-
 
 
 class MainActivity : AppCompatActivity() {
@@ -78,12 +71,16 @@ class MainActivity : AppCompatActivity() {
      * 2 == MoveNet MultiPose model
      * 3 == PoseNet model
      **/
+    private var exer_id = ""
+    private var exer_name = ""
     private var modelPos = 1
     private var exer_angle = 1.0
     private var exer_set = 0
     private var exer_count = 0
     private var exer_flag = 0
-    private var exer_set_number = 10 // 1세트에 해당하는 횟수
+    private var comp_set = 0
+    private var comp_rep = 0
+
 
     /** Default device is CPU */
     private var device = Device.CPU
@@ -183,9 +180,12 @@ class MainActivity : AppCompatActivity() {
 
         // 10-18 합치기
         val intent = intent
-        val exer_set = intent.getStringExtra("set_exer")
-        val exer_rep = intent.getStringExtra("rep_exer")
-        val exer_name = intent.getStringExtra("exer_name")
+        exer_id = intent.getStringExtra("id").toString()
+        exer_name = intent.getStringExtra("exer_name").toString()
+        comp_set = intent.getIntExtra("exer_set", 3)
+        comp_rep = intent.getIntExtra("exer_rep", 10)
+        Log.e("exer_set", comp_set.toString())
+        Log.e("exer_rep", comp_rep.toString())
 
         // 220606 button listener
         val btn_event = findViewById<Button>(R.id.button_retry)
@@ -348,9 +348,23 @@ class MainActivity : AppCompatActivity() {
                                 CameraSource.secondY, CameraSource.thirdX, CameraSource.thirdY)
                             if ((exer_angle > StopAngle) and (exer_flag == 0)) {
                                 exer_count++
-                                if(exer_count % exer_set_number == 0){
+                                if(exer_count % comp_rep == 0){
                                     exer_set++
-                                    exer_count%=exer_set_number
+
+
+                                    // 목표 횟수 도달 => ExerResult로 넘어감
+                                    if(comp_set == exer_set){
+                                        val nextIntent = Intent(this@MainActivity,ExerResult::class.java)
+                                        nextIntent.putExtra("id", exer_id)
+                                        nextIntent.putExtra("exer_name", exer_name)
+                                        nextIntent.putExtra("exer_set", comp_set)
+                                        nextIntent.putExtra("exer_rep", comp_rep)
+                                        startActivity(nextIntent)
+
+                                        finish()
+                                    }
+
+                                    exer_count%=comp_rep
                                 }
                                 exer_flag = 1
                             }

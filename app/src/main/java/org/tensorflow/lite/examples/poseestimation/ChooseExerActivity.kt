@@ -27,6 +27,7 @@ class ChooseExerActivity : AppCompatActivity() {
             nextIntent.putExtra("id", user_id)
             nextIntent.putExtra("exer_name", "exer_one")
             startActivity(nextIntent)
+            finish()
         }
 
         exer_two_button.setOnClickListener {
@@ -34,6 +35,7 @@ class ChooseExerActivity : AppCompatActivity() {
             nextIntent.putExtra("id", user_id)
             nextIntent.putExtra("exer_name", "exer_two")
             startActivity(nextIntent)
+            finish()
         }
 
         exer_three_button.setOnClickListener {
@@ -41,6 +43,8 @@ class ChooseExerActivity : AppCompatActivity() {
             nextIntent.putExtra("id", user_id)
             nextIntent.putExtra("exer_name", "exer_three")
             startActivity(nextIntent)
+            finish()
         }
+
     }
 }
