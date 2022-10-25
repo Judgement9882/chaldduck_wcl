@@ -393,5 +393,4 @@ interface ExerService{
         @Field("exer_id") exer_id:String,
         @Field("exer_name") exer_name:String)
             : retrofit2.Call<ExerJson>
-
 }
