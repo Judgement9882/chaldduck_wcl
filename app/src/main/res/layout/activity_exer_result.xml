@@ -26,6 +26,97 @@
         app:layout_constraintVertical_bias="0.0" />
 
 
+    <Button
+        android:id="@+id/exer_exit"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:backgroundTint="#C14E4E"
+        android:text="운동 종료"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/text_set"
+        android:layout_width="206dp"
+        android:layout_height="99dp"
+        android:gravity="center|left"
+        android:text="세트세트"
+        android:textSize="26sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/exer_set"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_rep"
+        android:layout_width="206dp"
+        android:layout_height="99dp"
+        android:layout_marginTop="4dp"
+        android:gravity="center|left"
+        android:text="운동운동"
+        android:textSize="26sp"
+        app:layout_constraintBottom_toTopOf="@+id/exer_exit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/exer_set"
+        app:layout_constraintTop_toBottomOf="@+id/exer_result"
+        app:layout_constraintVertical_bias="0.864" />
+
+    <TextView
+        android:id="@+id/text_kind"
+        android:layout_width="206dp"
+        android:layout_height="99dp"
+        android:layout_marginTop="56dp"
+        android:gravity="center|left"
+        android:text="운동운동"
+        android:textSize="26sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/exer_set"
+        app:layout_constraintTop_toBottomOf="@+id/exer_result" />
+
+    <TextView
+        android:id="@+id/exer_set"
+        android:layout_width="207dp"
+        android:layout_height="99dp"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:text="세트 : "
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textScaleX="1"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/exer_set2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/exer_set3"
+        tools:ignore="RtlCompat" />
+
+    <TextView
+        android:id="@+id/exer_set2"
+        android:layout_width="207dp"
+        android:layout_height="99dp"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:text="운동횟수 :"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textScaleX="1"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/exer_exit"
+        app:layout_constraintEnd_toStartOf="@+id/text_rep"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/exer_set"
+        tools:ignore="RtlCompat" />
+
     <TextView
         android:id="@+id/exer_set3"
         android:layout_width="207dp"
@@ -46,97 +137,4 @@
         app:layout_constraintVertical_bias="0.505"
         tools:ignore="RtlCompat" />
 
-    <TextView
-        android:id="@+id/exer_set2"
-        android:layout_width="207dp"
-        android:layout_height="99dp"
-        android:background="#FFFFFF"
-        android:gravity="center"
-        android:text="운동횟수 :"
-        android:textAlignment="textStart"
-        android:textColor="@color/black"
-        android:textScaleX="1"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/exer_exit"
-        app:layout_constraintEnd_toStartOf="@+id/text_rep"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/exer_set"
-        tools:ignore="RtlCompat" />
-
-    <Button
-        android:id="@+id/exer_exit"
-        android:layout_width="0dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="40dp"
-        android:backgroundTint="#C14E4E"
-        android:text="운동 종료"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/text_set"
-        android:layout_width="206dp"
-        android:layout_height="99dp"
-        android:layout_marginTop="88dp"
-        android:gravity="center|left"
-        android:text="세트세트"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/exer_set"
-        app:layout_constraintTop_toBottomOf="@+id/exer_set3" />
-
-    <TextView
-        android:id="@+id/exer_set"
-        android:layout_width="207dp"
-        android:layout_height="99dp"
-        android:background="#FFFFFF"
-        android:gravity="center"
-        android:text="세트 : "
-        android:textAlignment="textStart"
-        android:textColor="@color/black"
-        android:textScaleX="1"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/exer_exit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/exer_result"
-        tools:ignore="RtlCompat" />
-
-    <TextView
-        android:id="@+id/text_kind"
-        android:layout_width="206dp"
-        android:layout_height="99dp"
-        android:gravity="center|left"
-        android:text="운동운동"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/text_set"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/exer_set"
-        app:layout_constraintTop_toBottomOf="@+id/exer_result"
-        app:layout_constraintVertical_bias="0.508" />
-
-    <TextView
-        android:id="@+id/text_rep"
-        android:layout_width="206dp"
-        android:layout_height="99dp"
-        android:layout_marginTop="4dp"
-        android:gravity="center|left"
-        android:text="운동운동"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/exer_exit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/exer_set"
-        app:layout_constraintTop_toBottomOf="@+id/text_set"
-        app:layout_constraintVertical_bias="0.495" />
 </androidx.constraintlayout.widget.ConstraintLayout>

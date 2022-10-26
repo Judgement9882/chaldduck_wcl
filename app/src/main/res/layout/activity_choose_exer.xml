@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ChooseExerActivity">
+
     <TextView
         android:id="@+id/exer_result"
         android:layout_width="0dp"
@@ -14,7 +15,7 @@
         android:textAlignment="viewStart"
         android:textColor="@color/white"
         android:textScaleX="1"
-        android:textSize="48sp"
+        android:textSize="34sp"
         android:textStyle="bold"
 
         app:layout_constraintBottom_toBottomOf="parent"
