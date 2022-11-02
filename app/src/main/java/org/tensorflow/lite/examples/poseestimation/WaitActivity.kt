@@ -17,6 +17,8 @@ class WaitActivity : AppCompatActivity() {
 
     val FLAG_REQ_CAMERA = 101
 
+    private lateinit var  timer: CountDownTimer
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_wait)
@@ -31,7 +33,8 @@ class WaitActivity : AppCompatActivity() {
         setPermission() // 카메라 권한 수행
 
         val tv : TextView = findViewById(R.id.tv)
-        object : CountDownTimer(11000, 1000) {
+        timer = object : CountDownTimer(11000, 1000) {
+
             override fun onTick(millisUntilFinished: Long) {
 //                val cam : Intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
 //                startActivityForResult(cam, FLAG_REQ_CAMERA)
@@ -42,7 +45,6 @@ class WaitActivity : AppCompatActivity() {
                 tv.setText("잠시후 운동화면으로 넘어갑니다.")
 
                 // 운동페이지로 인텐트 이동
-
                 val nextIntent = Intent(applicationContext, MainActivity::class.java)
                 nextIntent.putExtra("id", user_id)
                 nextIntent.putExtra("exer_name", exer_name)
@@ -51,7 +53,17 @@ class WaitActivity : AppCompatActivity() {
                 startActivity(nextIntent)
                 finish()
             }
-        }.start()
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        timer.start()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        timer.cancel()
     }
 
     private fun setPermission(){
