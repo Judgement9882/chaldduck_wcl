@@ -12,7 +12,7 @@
         android:layout_height="400dp"
         app:layout_constraintBottom_toTopOf="@+id/exer_info"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/exer_name"
         app:layout_constraintVertical_bias="0.5" />
@@ -23,6 +23,7 @@
         android:layout_height="wrap_content"
         android:onClick="onPlay"
         android:text="영상재생"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonSTOP"
         app:layout_constraintHorizontal_bias="0.5"
@@ -34,6 +35,9 @@
         android:layout_height="wrap_content"
         android:onClick="onStop"
         android:text="영상멈춤"
+        android:backgroundTint="@color/teal_200"
+
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonSTART"
         app:layout_constraintHorizontal_bias="0.5"
@@ -41,38 +45,56 @@
 
     <TextView
         android:id="@+id/exer_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:background="#4E7BEF"
+        android:foregroundGravity="center"
+        android:gravity="center"
         android:text="Standing side leg raises"
-        android:textSize="25dp"
-
-        app:layout_constraintBottom_toTopOf="@+id/videoView"
+        android:textColor="@color/white"
+        android:textScaleX="1"
+        android:textSize="30dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/exer_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="텍스트"
-        android:textSize="20dp"
-
-
-        app:layout_constraintBottom_toTopOf="@+id/buttonSTOP"
+        android:text="1. 어깨 너비로 발을 벌리고 가슴을 위로 올리고 복부에 힘을 줍니다."
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:foregroundGravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/exer_info2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/videoView"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintTop_toBottomOf="@+id/videoView" />
+
+    <TextView
+        android:id="@+id/exer_info2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2. 무릎을 약간 구부리고 선택한 다리를 옆으로 들어 올리십시오."
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:foregroundGravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSTOP"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/exer_info" />
 
     <Button
         android:id="@+id/buttonSTART"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="운동시작"
+        android:textStyle="bold"
+        android:backgroundTint="#C14E4E"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

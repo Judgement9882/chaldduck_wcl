@@ -38,7 +38,7 @@
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/9eee43cca4cc88c240dbb613b8c5fe45/transformed/jetified-core-ktx-1.5.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/fb96f7bc1989ad6c49bc4eb4882b8f52/transformed/material-1.3.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/878254071c9801a121002c4055a4ed9b/transformed/constraintlayout-2.0.4-api.jar</arg>
-                <arg>$USER_HOME$/.gradle/caches/transforms-3/06eeef496713b37e777e1d62559c63b6/transformed/jetified-tedpermission-2.2.3-api.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/transforms-3/9687a36182be1351eaff5aa9744db9e2/transformed/jetified-tedpermission-2.2.3-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/4298d0f15a2badbdbb2002f58e740ea7/transformed/appcompat-1.3.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/50a02b86ba3a2d26c2c637f790060ca9/transformed/jetified-glide-4.11.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/ea15ea7f9567a8b95a5d767dc0d1990f/transformed/jetified-viewpager2-1.0.0-api.jar</arg>
