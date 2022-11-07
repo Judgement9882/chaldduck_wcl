@@ -7,7 +7,7 @@
         <entry key="..\:/Users/kmmjj/Desktop/movenet_test/exerlearning_movenet_dev/app/src/main/res/layout/activity_exer_info.xml" value="0.25" />
         <entry key="..\:/Users/kmmjj/Desktop/movenet_test/exerlearning_movenet_dev/app/src/main/res/layout/activity_exer_result.xml" value="0.25" />
         <entry key="..\:/Users/kmmjj/Desktop/movenet_test/exerlearning_movenet_dev/app/src/main/res/layout/activity_exer_youtube.xml" value="0.33" />
-        <entry key="..\:/Users/kmmjj/Desktop/movenet_test/exerlearning_movenet_dev/app/src/main/res/layout/activity_home.xml" value="0.1" />
+        <entry key="..\:/Users/kmmjj/Desktop/movenet_test/exerlearning_movenet_dev/app/src/main/res/layout/activity_home.xml" value="0.18" />
         <entry key="..\:/Users/kmmjj/Desktop/movenet_test/exerlearning_movenet_dev/app/src/main/res/layout/activity_insert_set_rep.xml" value="0.1" />
         <entry key="..\:/Users/kmmjj/Desktop/movenet_test/exerlearning_movenet_dev/app/src/main/res/layout/activity_login.xml" value="0.22" />
         <entry key="..\:/Users/kmmjj/Desktop/movenet_test/exerlearning_movenet_dev/app/src/main/res/layout/activity_main.xml" value="0.1" />
@@ -20,7 +20,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
