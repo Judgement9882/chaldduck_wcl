@@ -12,6 +12,7 @@
         android:background="#4E7BEF"
         android:foregroundGravity="center"
         android:gravity="center"
+        android:textAlignment="center"
         android:text="userinfo"
         android:textColor="@color/white"
         android:textScaleX="1"
