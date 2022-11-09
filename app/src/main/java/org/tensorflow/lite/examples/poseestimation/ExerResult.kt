@@ -43,23 +43,23 @@ class ExerResult : AppCompatActivity() {
 
         // 운동 종류
         if(exer_name == "exer_one"){
-            text_kind.text = "사이드 래터럴 레이즈"
+            text_kind.text = "운동 종류 : 사이드 래터럴 레이즈"
             exer_name = "side_lateral_raise"
         }
         else if(exer_name == "exer_two"){
-            text_kind.text = "스탠딩 사이드 레그 레이즈"
+            text_kind.text = "운동 종류 : 스탠딩 사이드 레그 레이즈"
             exer_name = "standing_side_leg_raise"
         }
         else{
-            text_kind.text = "스쿼트"
+            text_kind.text = "운동 종류 : 스쿼트"
             exer_name = "squat"
         }
 
         // 운동 세트
-        text_set.text = exer_set.toString()
+        text_set.setText("세트 : "+ exer_set.toString())
 
         // 운동 총 횟수
-        text_rep.text = (exer_set * exer_rep).toString()
+        text_rep.setText("운동 총 횟수 : "+ (exer_set * exer_rep).toString())
 
         var gson = GsonBuilder().setLenient().create()
 
@@ -78,8 +78,8 @@ class ExerResult : AppCompatActivity() {
         exer_exit.setOnClickListener{
             val idStr = user_id.toString()
             val exerName = exer_name
-            val exerSet = text_set.text.toString()
-            val exerOKCount = text_rep.text.toString()
+            val exerSet = exer_set.toString()
+            val exerOKCount = exer_rep.toString()
             val exerNOKCount = "0"
 
             service.signup(idStr, exerName, exerSet, exerOKCount, exerNOKCount).enqueue(object : Callback<ExerJson> {

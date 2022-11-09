@@ -24,7 +24,7 @@ class InsertSetRep : AppCompatActivity() {
 
         exer_set = findViewById(R.id.exer_set_num)
         exer_rep = findViewById(R.id.exer_rep_num)
-        exer_start_button = findViewById(R.id.exer_exit)
+        exer_start_button = findViewById(R.id.exer_start)
 
         // 운동 시작 버튼
         exer_start_button.setOnClickListener {
