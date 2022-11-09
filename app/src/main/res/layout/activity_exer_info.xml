@@ -6,19 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".ExerInfo">
 
-
     <!--Ui component for our bar chart-->
     <TextView
         android:id="@+id/exer_result"
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:background="#4E7BEF"
+        android:foregroundGravity="center"
+        android:gravity="center"
         android:text="xxx님의 운동기록"
+        android:textAlignment="center"
         android:textColor="@color/white"
         android:textScaleX="1"
         android:textSize="30dp"
-        android:foregroundGravity="center"
-        android:gravity="center"
         android:textStyle="bold"
 
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,7 +31,7 @@
         android:layout_width="410dp"
         android:layout_height="272dp"
         android:layout_below="@id/exer_result"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="1dp">
@@ -51,43 +51,45 @@
 
     <Button
         android:id="@+id/exer_query1"
-        android:layout_width="131dp"
-        android:layout_height="184dp"
-        android:backgroundTint="#C14E4E"
-        android:text="사이드\n래터럴\n레이즈"
-        app:layout_constraintBottom_toTopOf="@+id/BarChart"
-        app:layout_constraintEnd_toStartOf="@+id/exer_query2"
+        android:layout_width="0dp"
+        android:layout_height="75dp"
+        android:text="사이드 래터럴 레이즈"
+
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/exer_query2"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/exer_result" />
 
     <Button
         android:id="@+id/exer_query2"
-        android:layout_width="131dp"
-        android:layout_height="184dp"
-        android:layout_marginStart="140dp"
-        android:text="스탠딩\n사이드\n레그\n레이즈"
-        app:layout_constraintBottom_toTopOf="@+id/BarChart"
-        app:layout_constraintEnd_toStartOf="@+id/exer_query3"
+        android:layout_width="0dp"
+        android:layout_height="75dp"
+        android:backgroundTint="#C14E4E"
+        android:text="측면 다리들기"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/exer_query3"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/exer_query1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/exer_result"
-        app:layout_constraintVertical_bias="0.508" />
+        app:layout_constraintTop_toBottomOf="@+id/exer_query1" />
 
     <Button
         android:id="@+id/exer_query3"
-        android:layout_width="131dp"
-        android:layout_height="184dp"
-        android:layout_marginStart="280dp"
+        android:layout_width="0dp"
+        android:layout_height="75dp"
         android:backgroundTint="@color/teal_200"
         android:text="스쿼트"
+        android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/BarChart"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.968"
-        app:layout_constraintStart_toEndOf="@+id/exer_query2"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/exer_result" />
+        app:layout_constraintTop_toBottomOf="@+id/exer_query2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

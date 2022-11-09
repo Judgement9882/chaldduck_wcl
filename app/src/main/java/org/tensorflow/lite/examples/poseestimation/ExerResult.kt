@@ -38,6 +38,7 @@ class ExerResult : AppCompatActivity() {
         text_kind = findViewById(R.id.text_kind)
         text_set = findViewById(R.id.text_set)
         text_rep = findViewById(R.id.text_rep)
+
         exer_exit = findViewById(R.id.exer_exit)
 
         // 운동 종류

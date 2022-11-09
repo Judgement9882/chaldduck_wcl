@@ -35,11 +35,11 @@
         android:layout_marginBottom="50dp"
         android:backgroundTint="#C14E4E"
         android:text="측면 다리들기"
+        android:textSize="25dp"
         android:textStyle="bold"
-
         android:textColor="#FFFFFF"
 
-        android:textSize="25dp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
