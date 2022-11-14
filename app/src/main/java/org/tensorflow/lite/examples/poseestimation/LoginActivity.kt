@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import com.google.gson.GsonBuilder
 import retrofit2.Callback
 import retrofit2.Response
@@ -53,6 +54,10 @@ class LoginActivity : AppCompatActivity() {
                         val nextIntent = Intent(this@LoginActivity,HomeActivity::class.java)
                         nextIntent.putExtra("id", idStr)
                         startActivity(nextIntent)
+                    }
+
+                    else if (result?.code == "201"){
+                        Toast.makeText(this@LoginActivity, "아이디 또는 비밀번호를 잘못 입력했습니다.\n아이디와 비밀번호를 다시 확인해주세요.", Toast.LENGTH_SHORT).show()
                     }
                 }
 

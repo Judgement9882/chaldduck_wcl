@@ -47,7 +47,7 @@ class ExerResult : AppCompatActivity() {
             exer_name = "side_lateral_raise"
         }
         else if(exer_name == "exer_two"){
-            text_kind.text = "운동 종류 : 스탠딩 사이드 레그 레이즈"
+            text_kind.text = "운동 종류 : 측면 다리들기"
             exer_name = "standing_side_leg_raise"
         }
         else{

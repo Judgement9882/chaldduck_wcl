@@ -18,10 +18,7 @@ package org.tensorflow.lite.examples.poseestimation.camera
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.Bitmap
-import android.graphics.ImageFormat
-import android.graphics.Matrix
-import android.graphics.Rect
+import android.graphics.*
 import android.hardware.camera2.CameraCaptureSession
 import android.hardware.camera2.CameraCharacteristics
 import android.hardware.camera2.CameraDevice
@@ -67,6 +64,9 @@ class CameraSource(
         /** Threshold for confidence score. */
         private const val MIN_CONFIDENCE = .2f
         private const val TAG = "Camera Source"
+
+        // 22.11.14
+        public var JointBody = listOf(Triple(BodyPart.LEFT_ANKLE, BodyPart.LEFT_HIP, BodyPart.RIGHT_KNEE))
     }
 
 
@@ -310,16 +310,20 @@ class CameraSource(
         visualize(persons, bitmap)
     }
 
-    private val bodyJoints = listOf(
-        Triple(BodyPart.LEFT_ANKLE, BodyPart.LEFT_HIP, BodyPart.RIGHT_KNEE),
-        //Triple(BodyPart.RIGHT_SHOULDER, BodyPart.RIGHT_ELBOW, BodyPart.RIGHT_WRIST),
-    )
+    // 22.11.14 주석처리
+
+//    var bodyJoints = listOf(
+//        Triple(BodyPart.LEFT_ANKLE, BodyPart.LEFT_HIP, BodyPart.RIGHT_KNEE),
+//        //Triple(BodyPart.RIGHT_SHOULDER, BodyPart.RIGHT_ELBOW, BodyPart.RIGHT_WRIST),
+//    )
 
 
 
     private fun showPos(persons: List<Person>){
         persons.forEach{ person ->
-            bodyJoints.forEach{
+            // 22.11.14 주석처리
+//            bodyJoints.forEach{
+            JointBody.forEach{
                 var pointA = person.keyPoints[it.first.position].coordinate
                 var pointB = person.keyPoints[it.second.position].coordinate
                 var pointC = person.keyPoints[it.third.position].coordinate

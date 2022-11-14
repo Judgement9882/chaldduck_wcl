@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import com.google.gson.GsonBuilder
 import retrofit2.Callback
 import retrofit2.Response
@@ -67,6 +68,7 @@ class SignUpActivity : AppCompatActivity() {
                 }
 
                 override fun onFailure(call: retrofit2.Call<LoginJson>, t: Throwable) {
+                    Toast.makeText(this@SignUpActivity, "중복된 ID가 있습니다. \n다른 ID를 입력해주시기 바랍니다.", Toast.LENGTH_SHORT).show()
                     Log.e("회원가입2", "${t.localizedMessage}")
                 }
             })

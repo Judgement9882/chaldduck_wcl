@@ -30,7 +30,12 @@ class InsertSetRep : AppCompatActivity() {
         exer_start_button.setOnClickListener {
 
             if(mediaPlayer == null){
-                mediaPlayer = MediaPlayer.create(this, R.raw.start)
+                if(exer_name == "exer_three"){
+                    mediaPlayer = MediaPlayer.create(this, R.raw.left)
+                }
+                else {
+                    mediaPlayer = MediaPlayer.create(this, R.raw.front)
+                }
             }
             mediaPlayer?.start()
 

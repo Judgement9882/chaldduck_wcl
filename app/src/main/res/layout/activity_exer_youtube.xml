@@ -67,29 +67,29 @@
         android:id="@+id/exer_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:foregroundGravity="center"
         android:text="1. 어깨 너비로 발을 벌리고 가슴을 위로 올리고 복부에 힘을 줍니다."
         android:textSize="15dp"
         android:textStyle="bold"
-        android:foregroundGravity="center"
-        app:layout_constraintBottom_toTopOf="@+id/exer_info2"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSTOP"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/videoView" />
 
-    <TextView
-        android:id="@+id/exer_info2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="2. 무릎을 약간 구부리고 선택한 다리를 옆으로 들어 올리십시오."
-        android:textSize="15dp"
-        android:textStyle="bold"
-        android:foregroundGravity="center"
-        app:layout_constraintBottom_toTopOf="@+id/buttonSTOP"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/exer_info" />
+<!--    <TextView-->
+<!--        android:id="@+id/exer_info2"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="2. 무릎을 약간 구부리고 선택한 다리를 옆으로 들어 올리십시오."-->
+<!--        android:textSize="15dp"-->
+<!--        android:textStyle="bold"-->
+<!--        android:foregroundGravity="center"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/buttonSTOP"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/exer_info" />-->
 
     <Button
         android:id="@+id/buttonSTART"
