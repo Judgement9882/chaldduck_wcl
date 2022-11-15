@@ -24,6 +24,8 @@
         android:onClick="onPlay"
         android:text="영상재생"
         android:textStyle="bold"
+        android:backgroundTint="#4E7BEF"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonSTOP"
         app:layout_constraintHorizontal_bias="0.5"
@@ -35,7 +37,8 @@
         android:layout_height="wrap_content"
         android:onClick="onStop"
         android:text="영상멈춤"
-        android:backgroundTint="@color/teal_200"
+        android:backgroundTint="#4E7BEF"
+
 
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -95,9 +98,9 @@
         android:id="@+id/buttonSTART"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="운동시작"
+        android:backgroundTint="#4E7BEF"
+        android:text="세트설정"
         android:textStyle="bold"
-        android:backgroundTint="#C14E4E"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -57,6 +57,8 @@
 
         android:textSize="20dp"
         android:textStyle="bold"
+        android:backgroundTint="#4E7BEF"
+
         app:layout_constraintBottom_toTopOf="@+id/exer_query2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -67,7 +69,7 @@
         android:id="@+id/exer_query2"
         android:layout_width="0dp"
         android:layout_height="75dp"
-        android:backgroundTint="#C14E4E"
+        android:backgroundTint="#4E7BEF"
         android:text="측면 다리들기"
         android:textSize="20dp"
         android:textStyle="bold"
@@ -81,7 +83,7 @@
         android:id="@+id/exer_query3"
         android:layout_width="0dp"
         android:layout_height="75dp"
-        android:backgroundTint="@color/teal_200"
+        android:backgroundTint="#4E7BEF"
         android:text="스쿼트"
         android:textSize="20dp"
         android:textStyle="bold"

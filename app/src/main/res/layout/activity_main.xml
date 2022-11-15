@@ -19,6 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
         <TextView
             android:id="@+id/exer_name"
             android:layout_width="wrap_content"
@@ -28,15 +29,16 @@
             android:foregroundGravity="center"
             android:gravity="center"
             android:text="Exerlearning"
-            android:textAlignment="center"
 
+            android:textAlignment="center"
             android:textColor="#014898"
             android:textSize="50dp"
             android:textStyle="bold"
+
             app:layout_constraintEnd_toEndOf="parent"
-
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
             app:layout_constraintTop_toTopOf="parent" />
-
 
         <TextView
             android:id="@+id/setLayout"
@@ -77,6 +79,8 @@
             android:layout_height="70dp"
             android:layout_marginStart="28dp"
             android:layout_marginTop="28dp"
+            app:layout_constraintEnd_toStartOf="@+id/exer_name"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/inu" />

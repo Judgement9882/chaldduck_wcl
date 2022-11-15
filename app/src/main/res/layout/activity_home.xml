@@ -34,11 +34,14 @@
         android:text="운동기록"
         android:textSize="30dp"
         android:textStyle="bold"
+        android:backgroundTint="#4E7BEF"
+
+
 
 
         app:layout_constraintBottom_toTopOf="@+id/exer_two"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/choose_text" />
 
@@ -49,13 +52,13 @@
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="60dp"
-        android:backgroundTint="#C14E4E"
-        android:text="운동시작"
+        android:backgroundTint="#4E7BEF"
+        android:text="운동선택"
         android:textAlignment="center"
-        android:textStyle="bold"
-
-
         android:textSize="30dp"
+
+
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
