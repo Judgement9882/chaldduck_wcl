@@ -14,93 +14,66 @@
 
     <include layout="@layout/bottom_sheet_layout" />
 
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
-        <TextView
-            android:id="@+id/exer_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:layout_marginEnd="28dp"
-            android:foregroundGravity="center"
-            android:gravity="center"
-            android:text="Exerlearning"
-
-            android:textAlignment="center"
-            android:textColor="#014898"
-            android:textSize="50dp"
-            android:textStyle="bold"
-
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/setLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="76dp"
-            android:layout_marginEnd="96dp"
-            android:text="Set : "
-            android:textAlignment="center"
-
-            android:textColor="#FFFFFF"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:translationX="20dp"
+        android:translationY="15dp"
+        app:srcCompat="@drawable/inu" />
 
 
-            android:textScaleX="1"
-            android:textSize="50dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/exer_name" />
+    <TextView
+        android:id="@+id/exer_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Exerlearning"
+        android:textAlignment="center"
+        android:textColor="#014898"
+        android:textSize="40dp"
+        android:textStyle="bold"
 
-        <TextView
-            android:id="@+id/countLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="96dp"
-            android:text="Count : "
-            android:textAlignment="center"
+        android:translationX="110dp"
+        android:translationY="15dp" />
 
-            android:textColor="#FFFFFF"
+    <TextView
+        android:id="@+id/countLayout"
+        android:layout_width="357dp"
+        android:layout_height="93dp"
+        android:text="Count : "
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textScaleX="1"
+        android:textSize="50dp"
+        android:translationX="30dp"
+        android:translationY="-130dp"
+        app:layout_anchor="@+id/surfaceView"
+        app:layout_anchorGravity="center" />
+
+    <TextView
+        android:id="@+id/setLayout"
+        android:layout_width="357dp"
+        android:layout_height="93dp"
+        android:text="Set : "
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textScaleX="1"
+        android:textSize="50dp"
+        android:translationX="60dp"
+        android:translationY="-200dp"
+        app:layout_anchor="@+id/surfaceView"
+        app:layout_anchorGravity="center" />
 
 
-            android:textScaleX="1"
-            android:textSize="50dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/setLayout" />
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="28dp"
-            app:layout_constraintEnd_toStartOf="@+id/exer_name"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/inu" />
-
-        <TextView
-            android:id="@+id/percent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_marginBottom="96dp"
-
-            android:text="00"
-            android:textColor="#014898"
-
-            android:textSize="80dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/percent"
+        android:layout_width="186dp"
+        android:layout_height="102dp"
+        android:text="11"
+        android:textColor="#014898"
+        android:textSize="70dp"
+        android:textStyle="bold"
+        android:translationX="140dp"
+        android:translationY="400dp" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
