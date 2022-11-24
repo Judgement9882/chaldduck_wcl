@@ -11,17 +11,25 @@ import android.widget.TextView
 import android.widget.Toast
 import com.gun0912.tedpermission.PermissionListener
 import com.gun0912.tedpermission.TedPermission
+import android.media.MediaPlayer
+
 
 class WaitActivity : AppCompatActivity() {
     lateinit var camera_view: ImageView
+
+    private var mediaPlayer: MediaPlayer? = null
 
     val FLAG_REQ_CAMERA = 101
 
     private lateinit var  timer: CountDownTimer
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_wait)
+
+        mediaPlayer = MediaPlayer.create(this, R.raw.start2)
+
 
         val intent = intent
         val user_id = intent.getStringExtra("id")
@@ -44,6 +52,9 @@ class WaitActivity : AppCompatActivity() {
                 // Activity 이동
                 tv.setText("잠시후 운동화면으로 넘어갑니다.")
 
+                mediaPlayer?.start()
+
+
                 // 운동페이지로 인텐트 이동
                 val nextIntent = Intent(applicationContext, MainActivity::class.java)
                 nextIntent.putExtra("id", user_id)
@@ -63,6 +74,8 @@ class WaitActivity : AppCompatActivity() {
 
     override fun onStop() {
         super.onStop()
+        //mediaPlayer?.release()
+        mediaPlayer = null
         timer.cancel()
     }
 

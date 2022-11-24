@@ -29,7 +29,6 @@
           <stringArguments>
             <stringArg name="classpath">
               <args>
-                <arg>$MODULE_DIR$/../../../app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/R.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/001a7b566ca4cfb13de8fe6e37c49f03/transformed/databinding-adapters-4.2.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/999037819aaf2990918f11004cf3d6e4/transformed/databinding-runtime-4.2.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/f6781905fa9704a7e0b3dcd8da8dad36/transformed/jetified-viewbinding-4.2.0-api.jar</arg>
