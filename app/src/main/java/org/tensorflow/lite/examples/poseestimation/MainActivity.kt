@@ -16,6 +16,7 @@ limitations under the License.
 
 package org.tensorflow.lite.examples.poseestimation
 
+
 import android.Manifest
 import android.app.AlertDialog
 import android.app.Dialog
@@ -43,6 +44,7 @@ import org.tensorflow.lite.examples.poseestimation.camera.CameraSource
 import org.tensorflow.lite.examples.poseestimation.data.Device
 import org.tensorflow.lite.examples.poseestimation.ml.*
 
+
 import org.tensorflow.lite.examples.poseestimation.data.BodyPart
 import java.lang.Math.abs
 import java.lang.Math.atan2
@@ -59,7 +61,10 @@ class MainActivity : AppCompatActivity() {
         private const val FRAGMENT_DIALOG = "dialog"
     }
 
-//    9.5 타이머 설정
+
+
+
+    //    9.5 타이머 설정
     private var mBinding: ActivityMainBinding?= null
     private val binding get() = mBinding!!
 //////////////////////////////////////////////////////////
@@ -176,11 +181,17 @@ class MainActivity : AppCompatActivity() {
             isPoseClassifier()
         }
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         // keep screen on while app is running
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+
+
+        mediaPlayer = MediaPlayer.create(this@MainActivity, R.raw.start2)
+        mediaPlayer?.start()
 
         // 10-18 합치기
         val intent = intent
