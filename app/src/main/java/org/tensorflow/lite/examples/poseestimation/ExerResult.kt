@@ -79,7 +79,7 @@ class ExerResult : AppCompatActivity() {
             val idStr = user_id.toString()
             val exerName = exer_name
             val exerSet = exer_set.toString()
-            val exerOKCount = exer_rep.toString()
+            val exerOKCount = (exer_set * exer_rep).toString()
             val exerNOKCount = "0"
 
             service.signup(idStr, exerName, exerSet, exerOKCount, exerNOKCount).enqueue(object : Callback<ExerJson> {
