@@ -190,9 +190,6 @@ class MainActivity : AppCompatActivity() {
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
 
-        mediaPlayer = MediaPlayer.create(this@MainActivity, R.raw.start2)
-        mediaPlayer?.start()
-
         // 10-18 합치기
         val intent = intent
         exer_id = intent.getStringExtra("id").toString()

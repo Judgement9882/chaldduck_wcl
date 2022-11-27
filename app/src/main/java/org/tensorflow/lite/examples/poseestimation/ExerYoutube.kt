@@ -79,6 +79,7 @@ class ExerYoutube : AppCompatActivity() {
     fun onStop(view: View) {
         // Stop button click!
         video?.pause()
+
     }
 
 }
