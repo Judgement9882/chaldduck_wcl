@@ -11,40 +11,25 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/icon"
         android:label="@string/tfe_pe_app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.PoseEstimation"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".ExerResult"
-            android:exported="false" />
-        <activity
             android:name=".WaitActivity"
             android:exported="false" />
         <activity
-            android:name=".ExerYoutube"
-            android:exported="false" />
-        <activity
-            android:name=".InsertSetRep"
-            android:exported="false" />
-        <activity
-            android:name=".ChooseExerActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ExerInfo"
+            android:name=".GuideActivity"
             android:exported="false" />
         <activity
             android:name=".HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".SignUpActivity"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="false" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

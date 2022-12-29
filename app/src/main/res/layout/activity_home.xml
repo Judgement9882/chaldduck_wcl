@@ -4,20 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fbffee"
     tools:context=".HomeActivity">
+
     <TextView
         android:id="@+id/choose_text"
         android:layout_width="0dp"
         android:layout_height="100dp"
-        android:background="#4E7BEF"
+        android:background="#330341"
         android:foregroundGravity="center"
         android:gravity="center"
-        android:textAlignment="center"
         android:text="userinfo"
+        android:textAlignment="center"
         android:textColor="@color/white"
         android:textScaleX="1"
-        android:textSize="30dp"
-        android:textStyle="bold"
+        android:textSize="25dp"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -25,43 +26,32 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/exer_one"
-        android:layout_width="0dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="40dp"
-        android:text="운동기록"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        android:backgroundTint="#4E7BEF"
-
-
-
-
-        app:layout_constraintBottom_toTopOf="@+id/exer_two"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/choose_text" />
-
-    <Button
         android:id="@+id/exer_two"
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
-        android:layout_marginBottom="60dp"
-        android:backgroundTint="#4E7BEF"
-        android:text="운동선택"
+        android:layout_marginBottom="100dp"
+        android:background="#00FFFFFF"
+        android:backgroundTint="#00FFFFFF"
+        android:text="여기를 눌러 시작하세요."
+
+
         android:textAlignment="center"
-        android:textSize="30dp"
-
-
+        android:textColor="@color/black"
+        android:textSize="22dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/main2"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

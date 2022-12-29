@@ -20,60 +20,22 @@
         android:layout_height="70dp"
         android:translationX="20dp"
         android:translationY="15dp"
-        app:srcCompat="@drawable/inu" />
+        app:srcCompat="@mipmap/icon" />
 
 
     <TextView
         android:id="@+id/exer_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Exerlearning"
+        android:scaleX="2.0"
+        android:scaleY="2.0"
+        android:text="WCL"
         android:textAlignment="center"
-        android:textColor="#014898"
+        android:textColor="#fbffee"
+
         android:textSize="40dp"
         android:textStyle="bold"
-
-        android:translationX="110dp"
+        android:translationX="160dp"
         android:translationY="15dp" />
-
-    <TextView
-        android:id="@+id/countLayout"
-        android:layout_width="357dp"
-        android:layout_height="93dp"
-        android:text="Count : "
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textScaleX="1"
-        android:textSize="50dp"
-        android:translationX="30dp"
-        android:translationY="-130dp"
-        app:layout_anchor="@+id/surfaceView"
-        app:layout_anchorGravity="center" />
-
-    <TextView
-        android:id="@+id/setLayout"
-        android:layout_width="357dp"
-        android:layout_height="93dp"
-        android:text="Set : "
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textScaleX="1"
-        android:textSize="50dp"
-        android:translationX="60dp"
-        android:translationY="-200dp"
-        app:layout_anchor="@+id/surfaceView"
-        app:layout_anchorGravity="center" />
-
-
-    <TextView
-        android:id="@+id/percent"
-        android:layout_width="186dp"
-        android:layout_height="102dp"
-        android:text="11"
-        android:textColor="#014898"
-        android:textSize="70dp"
-        android:textStyle="bold"
-        android:translationX="140dp"
-        android:translationY="400dp" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

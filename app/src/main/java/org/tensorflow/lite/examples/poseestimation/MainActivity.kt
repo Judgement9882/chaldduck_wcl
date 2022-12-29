@@ -54,15 +54,13 @@ import kotlin.math.roundToInt
 import org.tensorflow.lite.examples.poseestimation.databinding.ActivityMainBinding
 import android.os.SystemClock
 import android.widget.Toast
+import java.lang.Thread.sleep
 
 
 class MainActivity : AppCompatActivity() {
     companion object {
         private const val FRAGMENT_DIALOG = "dialog"
     }
-
-
-
 
     //    9.5 타이머 설정
     private var mBinding: ActivityMainBinding?= null
@@ -78,16 +76,8 @@ class MainActivity : AppCompatActivity() {
      * 2 == MoveNet MultiPose model
      * 3 == PoseNet model
      **/
-    private var exer_id = ""
-    private var exer_name = ""
-    private var modelPos = 1
-    private var exer_angle = 1.0
-    private var exer_set = 0
-    private var exer_count = 0
-    private var exer_flag = 0
-    private var comp_set = 0
-    private var comp_rep = 0
-
+      private var modelPos = 1
+      private var exer_angle = 1.0
 
     /** Default device is CPU */
     private var device = Device.CPU
@@ -96,6 +86,7 @@ class MainActivity : AppCompatActivity() {
         Pair(BodyPart.LEFT_ANKLE, BodyPart.LEFT_ELBOW),
         Pair(BodyPart.RIGHT_ANKLE, BodyPart.RIGHT_ELBOW)
     )
+
 
     private lateinit var tvScore: TextView
     private lateinit var tvFPS: TextView
@@ -108,26 +99,23 @@ class MainActivity : AppCompatActivity() {
     private lateinit var tvClassificationValue3: TextView
     private lateinit var swClassification: SwitchCompat
     private lateinit var vClassificationOption: View
+
+    private lateinit var timer_text: TextView
+
     private var cameraSource: CameraSource? = null
     private var isClassifyPose = false
-
-    // 추가 변수===============================================
-    private lateinit var setLay : TextView
-    private lateinit var countLay : TextView
-    private lateinit var percentLay : TextView
-    // 11.14 미디어
     private var mediaPlayer: MediaPlayer? = null
-//    var cam_dir = 0
+
+
     var StartAngle = 30
     var StopAngle = 70
+    var musicFlag = true // musicFlag가 true이면 음악을 틀어두고 false이면 음악을 틀지 않음
     // 추가 변수===============================================
     private val requestPermissionLauncher =
         registerForActivityResult(
             ActivityResultContracts.RequestPermission()
         ) { isGranted: Boolean ->
             if (isGranted) {
-                // Permission is granted. Continue the action or workflow in your
-                // app.
                 openCamera()
             } else {
                 // Explain to the user that the feature is unavailable because the
@@ -189,104 +177,19 @@ class MainActivity : AppCompatActivity() {
         // keep screen on while app is running
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
-
-        // 10-18 합치기
         val intent = intent
-        exer_id = intent.getStringExtra("id").toString()
-        exer_name = intent.getStringExtra("exer_name").toString()
-        comp_set = intent.getIntExtra("exer_set", 3)
-        comp_rep = intent.getIntExtra("exer_rep", 10)
-        Log.e("exer_set", comp_set.toString())
-        Log.e("exer_rep", comp_rep.toString())
 
-        // 22.11.14 운동 추가
+        // 찰떡콩떡
+        CameraSource.JointBody = listOf(Triple(BodyPart.LEFT_EAR, BodyPart.LEFT_SHOULDER, BodyPart.LEFT_HIP))
+        StartAngle = 162
+        StopAngle = 154
 
-        if(exer_name == "exer_one"){
-            CameraSource.JointBody = listOf(Triple(BodyPart.RIGHT_WRIST, BodyPart.RIGHT_SHOULDER, BodyPart.RIGHT_HIP))
-            Log.e("exer : " , "1")
-            StartAngle = 30
-            StopAngle = 70
-        }
-        else if (exer_name == "exer_two"){
-            CameraSource.JointBody = listOf(Triple(BodyPart.LEFT_ANKLE, BodyPart.LEFT_HIP, BodyPart.RIGHT_KNEE))
-            Log.e("exer : " , "2")
-            StartAngle = 30
-            StopAngle = 70
-        }
-        else {
-            CameraSource.JointBody = listOf(Triple(BodyPart.RIGHT_KNEE, BodyPart.RIGHT_HIP, BodyPart.RIGHT_SHOULDER))
-            Log.e("exer : " , "3")
-            StartAngle = 150
-            StopAngle = 80
-        }
+    //바인딩 초기화
 
-
-        // 220606 button listener
-//        val btn_event = findViewById<Button>(R.id.button_retry)
-//        val switch_event = findViewById<ImageButton>(R.id.camera_change)
-
-        // 9.1 camera_switch =======================================
-//        switch_event.setOnClickListener{switchCamera()}
-//        switch_event.setOnClickListener {
-//            if (cam_dir == 0) {
-//                cameraSource?.switchCamera(cam_dir)
-//                cam_dir = 1
-//            } else {
-//                cameraSource?.switchCamera(cam_dir)
-//                cam_dir = 0
-//            }
-//        }
-//
-//                cameraSource?.cameraId = "1"
-//                cameraSource?.camera?.close()
-//                Log.d("device : ", cameraSource!!.cameraId)
-//                openCamera()
-//        }
-//        else{
-//                cameraSource?.cameraId = "0"
-//                cameraSource?.camera?.close()
-//                Log.d("device : ", cameraSource!!.cameraId)
-//                openCamera()
-//            }
-
-        // 9.1 camera_switch =======================================
-
-//        9.5 Timer
-
-        //바인딩 초기화
         mBinding = ActivityMainBinding.inflate(layoutInflater)
 
         // 생성된 뷰 액티비티에 표시시
         setContentView(binding.root)
-
-        // elapsedRealtime: 부팅 이후의 밀리초를 리턴 (절전 모드에서 보낸 시간 포함)
-        // 사용자가 현재시간을 수정해도 영향 받지 않음
-//        binding.startBtn.setOnClickListener {
-//            binding.chronometer.base = SystemClock.elapsedRealtime()
-//            binding.chronometer.start()
-//
-//            //버튼 표시 여부 조정
-//            binding.buttonRetry.isEnabled = true
-//            binding.startBtn.isEnabled = true
-//        }
-//
-//        binding.buttonRetry.setOnClickListener {
-//            binding.chronometer.base = SystemClock.elapsedRealtime()
-//            binding.chronometer.stop()
-//
-//            //버튼 표시 여부 조정
-//            binding.buttonRetry.isEnabled = true
-//            binding.startBtn.isEnabled = true
-//
-//            exer_count = 0
-////            exer_set = 0
-//        }
-
-
-//        btn_event.setOnClickListener{
-//            exer_count = 0
-//            exer_set = 0
-//        }
 
 
         tvScore = findViewById(R.id.tvScore)
@@ -301,9 +204,6 @@ class MainActivity : AppCompatActivity() {
         tvClassificationValue3 = findViewById(R.id.tvClassificationValue3)
         swClassification = findViewById(R.id.swPoseClassification)
         vClassificationOption = findViewById(R.id.vClassificationOption)
-        countLay = findViewById(R.id.countLayout)
-        setLay = findViewById(R.id.setLayout)
-        percentLay = findViewById(R.id.percent)
         initSpinner()
 
         spnModel.setSelection(modelPos)
@@ -313,24 +213,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // 9.1 camera_switch =======================================
-//    private fun switchCamera(){
-//        if(cameraSource?.cameraId == "0"){
-//
-//                cameraSource?.cameraId = "1"
-//                cameraSource?.camera?.close()
-//                Log.d("device : ", cameraSource!!.cameraId)
-//                openCamera()
-//        }
-//        else{
-//                cameraSource?.cameraId = "0"
-//                cameraSource?.camera?.close()
-//                Log.d("device : ", cameraSource!!.cameraId)
-//                openCamera()
-//            }
-//
-//    }
-    // 9.1 camera_switch =======================================
 
     override fun onStart() {
         super.onStart()
@@ -372,148 +254,37 @@ class MainActivity : AppCompatActivity() {
                             poseLabels: List<Pair<String, Float>>?
                         ) {
 
-                            Log.d("test : ", calculateAngle(CameraSource.firstX, CameraSource.firstY,
-                                CameraSource.secondX, CameraSource.secondY, CameraSource.thirdX, CameraSource.thirdY).toString())
+//                            Log.d("test : ", calculateAngle(CameraSource.firstX, CameraSource.firstY,
+//                                CameraSource.secondX, CameraSource.secondY, CameraSource.thirdX, CameraSource.thirdY).toString())
                             exer_angle = calculateAngle(CameraSource.firstX, CameraSource.firstY, CameraSource.secondX,
                                 CameraSource.secondY, CameraSource.thirdX, CameraSource.thirdY)
-
-                            // 22.11.14 운동 종류에 따른 변수 변화
-                            if(exer_name == "exer_one" || exer_name == "exer_two"){
-                                if ((exer_angle > StopAngle) and (exer_flag == 0)) {
-                                    exer_count++
-
-                                    if(exer_count % comp_rep != 0){
-                                        mediaPlayer = MediaPlayer.create(this@MainActivity, R.raw.count_music)
+                            //찰떡
+                            //Log.d("머리 점의 좌표 : ", "("+CameraSource.firstX.toString() + ", " + CameraSource.firstY.toString() + ")")
+                            //Log.d("어깨 점의 좌표 : ", "("+CameraSource.secondX.toString() + ", " + CameraSource.secondY.toString() + ")")
+                            Log.d("차이 : ", (CameraSource.secondY - CameraSource.firstY).toString())
+                            if ((CameraSource.secondY - CameraSource.firstY > 40) && (CameraSource.secondY - CameraSource.firstY < 90)) {
+                                if (exer_angle < StopAngle) {
+                                    VisualizationUtils.SkeletonLineColor = Color.RED
+                                    if (musicFlag) {
+                                        mediaPlayer =
+                                            MediaPlayer.create(this@MainActivity, R.raw.necknok)
                                         mediaPlayer?.start()
+                                        musicFlag = false
                                     }
-
-
-                                    if(exer_count % comp_rep == 0){
-                                        exer_set++
-
-                                        if(comp_set != exer_set){
-                                            mediaPlayer = MediaPlayer.create(this@MainActivity, R.raw.set_music)
-                                            mediaPlayer?.start()
-                                        }
-
-
-                                        // 목표 횟수 도달 => ExerResult로 넘어감
-                                        if(comp_set == exer_set){
-
-                                            mediaPlayer = MediaPlayer.create(this@MainActivity, R.raw.exit)
-                                            mediaPlayer?.start()
-
-
-                                            val nextIntent = Intent(this@MainActivity,ExerResult::class.java)
-                                            nextIntent.putExtra("id", exer_id)
-                                            nextIntent.putExtra("exer_name", exer_name)
-                                            nextIntent.putExtra("exer_set", comp_set)
-                                            nextIntent.putExtra("exer_rep", comp_rep)
-                                            startActivity(nextIntent)
-
-                                            finish()
-                                        }
-
-                                        exer_count%=comp_rep
-                                    }
-                                    exer_flag = 1
-                                }
-                                else if ((exer_angle < StartAngle) and (exer_flag==1)){
-                                    exer_flag = 0
-                                }
-                            }
-                            // 스쿼트일 경우
-                            else{
-                                if ((exer_angle < StopAngle) and (exer_flag == 0)) {
-                                    exer_count++
-                                    if(exer_count % comp_rep != 0){
-                                        mediaPlayer = MediaPlayer.create(this@MainActivity, R.raw.count_music)
+                                } else if (exer_angle > StartAngle) {
+                                    VisualizationUtils.SkeletonLineColor = Color.GREEN
+                                    if (!musicFlag) {
+                                        mediaPlayer =
+                                            MediaPlayer.create(this@MainActivity, R.raw.neckok)
                                         mediaPlayer?.start()
+                                        musicFlag = true
                                     }
+                                } else {
+                                    VisualizationUtils.SkeletonLineColor = Color.YELLOW
 
-                                    if(exer_count % comp_rep == 0){
-                                        exer_set++
-
-                                        if(comp_set != exer_set){
-                                            mediaPlayer = MediaPlayer.create(this@MainActivity, R.raw.set_music)
-                                            mediaPlayer?.start()
-                                        }
-
-
-
-                                        // 목표 횟수 도달 => ExerResult로 넘어감
-                                        if(comp_set == exer_set){
-
-                                            mediaPlayer = MediaPlayer.create(this@MainActivity, R.raw.exit)
-                                            mediaPlayer?.start()
-
-                                            val nextIntent = Intent(this@MainActivity,ExerResult::class.java)
-                                            nextIntent.putExtra("id", exer_id)
-                                            nextIntent.putExtra("exer_name", exer_name)
-                                            nextIntent.putExtra("exer_set", comp_set)
-                                            nextIntent.putExtra("exer_rep", comp_rep)
-                                            startActivity(nextIntent)
-
-                                            finish()
-                                        }
-
-                                        exer_count%=comp_rep
-                                    }
-                                    exer_flag = 1
-                                }
-                                else if ((exer_angle > StartAngle) and (exer_flag==1)){
-                                    exer_flag = 0
                                 }
                             }
 
-                            countLay.text = "Count : " + exer_count.toString()
-                            setLay.text = "Set : " + exer_set.toString()
-
-                            // 22.06.22 강준영
-                            // 각도에 따른 운동 진행도와 그에 따른 텍스트 색깔 변화 ===========================
-
-                            // 22.11.14
-                            // 운동 종류에 따른 각도 로직 변경
-                            if(exer_name == "exer_one" || exer_name == "exer_two"){
-                                if (exer_angle < StartAngle) percentLay.text ="0%"
-                                else if(exer_angle > StopAngle) percentLay.text ="100%"
-                                else {
-                                    percentLay.text = ((100*(exer_angle-StartAngle)/(StopAngle - StartAngle)).roundToInt()).toString() + "%"
-                                    if ( 100*(exer_angle-StartAngle)/(StopAngle - StartAngle) < 30) {
-                                        percentLay.setTextColor(Color.RED)
-                                        VisualizationUtils.SkeletonLineColor = Color.RED
-                                    }
-                                    else if (100*(exer_angle-StartAngle)/(StopAngle - StartAngle) > 65) {
-                                        percentLay.setTextColor(Color.GREEN)
-                                        VisualizationUtils.SkeletonLineColor = Color.GREEN
-                                    }
-                                    else {
-                                        percentLay.setTextColor(Color.YELLOW)
-                                        VisualizationUtils.SkeletonLineColor = Color.YELLOW
-                                    }
-                                }
-                            }
-                            // 스쿼트 일 경우
-                            else{
-                                if (exer_angle > StartAngle) percentLay.text ="0%"
-                                else if(exer_angle < StopAngle) percentLay.text ="100%"
-                                else {
-                                    percentLay.text = ((100 - 100*(exer_angle-StopAngle)/(StartAngle - StopAngle)).roundToInt()).toString() + "%"
-                                    if (100 - 100*(exer_angle-StopAngle)/(StartAngle - StopAngle) < 30) {
-                                        percentLay.setTextColor(Color.RED)
-                                        VisualizationUtils.SkeletonLineColor = Color.RED
-                                    }
-                                    else if (100 - 100*(exer_angle-StopAngle)/(StartAngle - StopAngle) > 65) {
-                                        percentLay.setTextColor(Color.GREEN)
-                                        VisualizationUtils.SkeletonLineColor = Color.GREEN
-                                    }
-                                    else {
-                                        percentLay.setTextColor(Color.YELLOW)
-                                        VisualizationUtils.SkeletonLineColor = Color.YELLOW
-                                    }
-                                }
-                            }
-                            // ========================================================================
 
                             poseLabels?.sortedByDescending { it.second }?.let {
                                 tvClassificationValue1.text = getString(
@@ -616,9 +387,6 @@ class MainActivity : AppCompatActivity() {
         device = targetDevice
         createPoseEstimator()
     }
-
-    // 내가넣은코드
-    // 내가넣은코드
 
     // Change tracker for Movenet MultiPose model
     private fun changeTracker(position: Int) {
